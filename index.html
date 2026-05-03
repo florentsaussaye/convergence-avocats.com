@@ -1018,7 +1018,16 @@ button { font: inherit; cursor: pointer; }
   margin-top: 8px;
   align-self: flex-start;
 }
-.btn-submit:hover { background: var(--gold-2); transform: translateY(-1px); }
+.btn-submit:hover:not(:disabled) { background: var(--gold-2); transform: translateY(-1px); }
+.btn-submit:disabled { opacity: 0.55; cursor: wait; }
+.form-status {
+  margin-top: 14px;
+  font-size: 13px;
+  line-height: 1.6;
+  min-height: 18px;
+}
+.form-status.success { color: var(--gold-2); }
+.form-status.error { color: #ff8a8a; }
 
 /* ════════════════════════════════════════════════════════
    FOOTER
@@ -1700,29 +1709,29 @@ button { font: inherit; cursor: pointer; }
         </div>
       </div>
 
-      <form class="contact-form fade-up" onsubmit="event.preventDefault(); alert('Formulaire de démonstration — non connecté.');">
+      <form class="contact-form fade-up" id="contact-form" novalidate data-endpoint="https://convergence-contact.block21.workers.dev">
         <p class="form-title">Nous écrire</p>
         <div class="form-row">
           <div class="form-group">
             <label for="f-nom">Prénom &amp; Nom</label>
-            <input id="f-nom" type="text" placeholder="Jean Dupont" required>
+            <input id="f-nom" name="nom" type="text" placeholder="Jean Dupont" required maxlength="120" autocomplete="name">
           </div>
           <div class="form-group">
             <label for="f-soc">Société</label>
-            <input id="f-soc" type="text" placeholder="Votre entreprise">
+            <input id="f-soc" name="societe" type="text" placeholder="Votre entreprise" maxlength="200" autocomplete="organization">
           </div>
         </div>
         <div class="form-group">
           <label for="f-email">Email</label>
-          <input id="f-email" type="email" placeholder="jean@entreprise.fr" required>
+          <input id="f-email" name="email" type="email" placeholder="jean@entreprise.fr" required maxlength="200" autocomplete="email">
         </div>
         <div class="form-group">
           <label for="f-tel">Téléphone</label>
-          <input id="f-tel" type="tel" placeholder="+33 6 00 00 00 00">
+          <input id="f-tel" name="telephone" type="tel" placeholder="+33 6 00 00 00 00" maxlength="40" autocomplete="tel">
         </div>
         <div class="form-group">
           <label for="f-domaine">Domaine concerné</label>
-          <select id="f-domaine">
+          <select id="f-domaine" name="domaine">
             <option value="">Sélectionner un domaine</option>
             <option>Corporate et droit des sociétés</option>
             <option>Droit social</option>
@@ -1735,9 +1744,14 @@ button { font: inherit; cursor: pointer; }
         </div>
         <div class="form-group">
           <label for="f-msg">Votre situation</label>
-          <textarea id="f-msg" placeholder="Décrivez brièvement votre situation ou votre besoin. Toutes les informations que vous nous transmettez sont strictement confidentielles." required></textarea>
+          <textarea id="f-msg" name="message" placeholder="Décrivez brièvement votre situation ou votre besoin. Toutes les informations que vous nous transmettez sont strictement confidentielles." required maxlength="5000"></textarea>
+        </div>
+        <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+          <label for="f-hp">Ne pas remplir</label>
+          <input id="f-hp" name="hp" type="text" tabindex="-1" autocomplete="off">
         </div>
         <button class="btn-submit" type="submit">Envoyer →</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
         <p class="form-note">Toutes les informations transmises via ce formulaire sont soumises au secret professionnel de l'avocat. Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données.</p>
       </form>
     </div>
@@ -1858,6 +1872,56 @@ openMl2?.addEventListener('click', openModal);
 mlClose?.addEventListener('click', closeModal);
 mlOverlay?.addEventListener('click', (e) => { if (e.target === mlOverlay) closeModal(); });
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeModal(); toggleMenu(false); } });
+
+// ══ Formulaire de contact ══
+const contactForm = document.getElementById('contact-form');
+const formStatus = document.getElementById('form-status');
+contactForm?.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const endpoint = contactForm.dataset.endpoint;
+  if (!endpoint || endpoint.includes('REPLACE-ME')) {
+    formStatus.textContent = 'Endpoint non configuré.';
+    formStatus.className = 'form-status error';
+    return;
+  }
+
+  const data = Object.fromEntries(new FormData(contactForm).entries());
+  if (!data.nom || !data.email || !data.message) {
+    formStatus.textContent = 'Veuillez remplir les champs obligatoires.';
+    formStatus.className = 'form-status error';
+    return;
+  }
+
+  const submitBtn = contactForm.querySelector('.btn-submit');
+  submitBtn.disabled = true;
+  const originalText = submitBtn.textContent;
+  submitBtn.textContent = 'Envoi en cours…';
+  formStatus.textContent = '';
+  formStatus.className = 'form-status';
+
+  try {
+    const r = await fetch(endpoint + '/send', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    const result = await r.json().catch(() => ({}));
+    if (r.ok && result.ok) {
+      formStatus.textContent = 'Message envoyé. Vous recevrez un accusé de réception par email.';
+      formStatus.className = 'form-status success';
+      contactForm.reset();
+    } else {
+      formStatus.textContent = result.error || 'Erreur lors de l\'envoi. Merci de réessayer ou de nous contacter directement.';
+      formStatus.className = 'form-status error';
+    }
+  } catch (err) {
+    formStatus.textContent = 'Erreur réseau. Merci de vérifier votre connexion ou de nous contacter directement.';
+    formStatus.className = 'form-status error';
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalText;
+  }
+});
 </script>
 </body>
 </html>

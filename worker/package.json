@@ -1,0 +1,17 @@
+{
+  "name": "convergence-contact",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "secret:resend": "wrangler secret put RESEND_API_KEY",
+    "tail": "wrangler tail"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260503.1",
+    "typescript": "^6.0.3",
+    "wrangler": "^4.87.0"
+  }
+}

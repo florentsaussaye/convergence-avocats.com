@@ -1,0 +1,12 @@
+name = "convergence-contact"
+main = "src/index.ts"
+compatibility_date = "2024-12-01"
+
+# Variables publiques (visibles dans le code, OK pour les emails et l'origine)
+[vars]
+ALLOWED_ORIGIN = "https://www.convergence-avocats.com,https://convergence-avocats.com"
+RECIPIENT_EMAIL = "contact@convergence-avocats.com"
+FROM_EMAIL = "Convergence Avocats <contact@convergence-avocats.com>"
+
+# Secrets (à définir via : wrangler secret put RESEND_API_KEY)
+# - RESEND_API_KEY
