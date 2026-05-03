@@ -746,30 +746,6 @@ button { font: inherit; cursor: pointer; }
 .team-tel a:hover { color: var(--gold-2); }
 .team-tel svg { width: 14px; height: 14px; flex-shrink: 0; }
 
-.team-bio-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--gold);
-  background: none;
-  border: none;
-  padding: 8px 0;
-  cursor: pointer;
-  transition: color var(--t-fast);
-}
-.team-bio-toggle:hover { color: var(--gold-2); }
-.team-bio-toggle::after {
-  content: '+';
-  font-size: 14px;
-  transition: transform var(--t-base);
-}
-.team-bio-toggle[aria-expanded="true"]::after { content: '−'; }
-.team-bios { display: none; }
-.team-bios.open { display: block; }
 
 /* ════════════════════════════════════════════════════════
    SITUATIONS DE CRISE
@@ -1481,7 +1457,6 @@ button { font: inherit; cursor: pointer; }
             <p class="team-bio">Ancien Bâtonnier de l'Ordre des avocats de Paris, il a occupé de nombreuses responsabilités au sein de la profession et est régulièrement sollicité dans des contentieux professionnels ou disciplinaires impliquant des acteurs du monde économique. Au cours de sa carrière, il a également exercé comme associé du cabinet international Weil, Gotshal &amp; Manges.</p>
             <p class="team-bio">Il intervient aujourd'hui aux côtés de dirigeants, d'entreprises et d'institutions dans la gestion de contentieux complexes et de dossiers à forte sensibilité médiatique ou économique.</p>
           </div>
-          <button class="team-bio-toggle" aria-expanded="false">Voir la biographie</button>
           <div class="team-tags">
             <span class="team-tag">Pénal économique</span>
             <span class="team-tag">Contentieux</span>
@@ -1512,7 +1487,6 @@ button { font: inherit; cursor: pointer; }
             <p class="team-bio">Elle intervient également dans la gestion de contentieux sociaux sensibles, tant devant les juridictions prud'homales que dans les litiges collectifs du travail.</p>
             <p class="team-bio">Reconnue pour sa maîtrise du droit social des entreprises et sa connaissance des environnements économiques exigeants, Agnès Viottolo accompagne les directions juridiques et les directions des ressources humaines dans la gestion de leurs problématiques sociales les plus stratégiques.</p>
           </div>
-          <button class="team-bio-toggle" aria-expanded="false">Voir la biographie</button>
           <div class="team-tags">
             <span class="team-tag">Droit social</span>
             <span class="team-tag">PSE</span>
@@ -1543,7 +1517,6 @@ button { font: inherit; cursor: pointer; }
             <p class="team-bio">Au cours des dernières années, il s'est illustré dans plusieurs dossiers de restructuration de la place. Il intervient également dans la défense des organes de la procédure collective, aux côtés d'administrateurs et mandataires judiciaires.</p>
             <p class="team-bio">Il dispose par ailleurs d'une pratique reconnue du contentieux des affaires, notamment dans les conflits entre associés, les différends de gouvernance et les contentieux stratégiques entre entreprises.</p>
           </div>
-          <button class="team-bio-toggle" aria-expanded="false">Voir la biographie</button>
           <div class="team-tags">
             <span class="team-tag">Restructuring</span>
             <span class="team-tag">Procédures collectives</span>
@@ -1574,7 +1547,6 @@ button { font: inherit; cursor: pointer; }
             <p class="team-bio">Reconnu pour sa rigueur et la précision de son analyse juridique, il intervient régulièrement dans des opérations impliquant des structurations sociétaires complexes ou des problématiques corporate sensibles.</p>
             <p class="team-bio">Son approche combine une maîtrise technique approfondie du droit des sociétés, une expérience des situations de restructuration et une compréhension des enjeux stratégiques des entreprises.</p>
           </div>
-          <button class="team-bio-toggle" aria-expanded="false">Voir la biographie</button>
           <div class="team-tags">
             <span class="team-tag">Corporate</span>
             <span class="team-tag">Droit des sociétés</span>
@@ -1886,17 +1858,6 @@ openMl2?.addEventListener('click', openModal);
 mlClose?.addEventListener('click', closeModal);
 mlOverlay?.addEventListener('click', (e) => { if (e.target === mlOverlay) closeModal(); });
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeModal(); toggleMenu(false); } });
-
-// ══ Toggle bios équipe ══
-document.querySelectorAll('.team-bio-toggle').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const expanded = btn.getAttribute('aria-expanded') === 'true';
-    btn.setAttribute('aria-expanded', String(!expanded));
-    btn.textContent = expanded ? 'Voir la biographie' : 'Réduire';
-    btn.previousElementSibling.classList.toggle('open', !expanded);
-    // Re-add the chevron pseudo via CSS — text only changed, ::after is preserved
-  });
-});
 </script>
 </body>
 </html>
