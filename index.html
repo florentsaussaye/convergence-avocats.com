@@ -158,26 +158,13 @@ button { font: inherit; cursor: pointer; }
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 12px;
   text-decoration: none;
   flex-shrink: 0;
 }
-.nav-logo svg { flex-shrink: 0; }
-.nav-mark { display: flex; flex-direction: column; line-height: 1; }
-.nav-mark-1 {
-  font-family: var(--serif);
-  font-size: 17px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  color: var(--white);
-}
-.nav-mark-2 {
-  font-family: var(--sans);
-  font-size: 8px;
-  font-weight: 500;
-  letter-spacing: 4px;
-  color: var(--gold);
-  margin-top: 4px;
+.nav-logo-img {
+  height: clamp(32px, 4vw, 42px);
+  width: auto;
+  display: block;
 }
 .nav-menu {
   display: none;
@@ -1061,12 +1048,11 @@ button { font: inherit; cursor: pointer; }
   align-items: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
-.footer-name {
-  font-family: var(--serif);
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: var(--white);
+.footer-brand { display: flex; flex-direction: column; gap: 10px; }
+.footer-logo-img {
+  height: 48px;
+  width: auto;
+  display: block;
 }
 .footer-tagline {
   font-size: 10px;
@@ -1074,7 +1060,6 @@ button { font: inherit; cursor: pointer; }
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.25);
-  margin-top: 6px;
 }
 .footer-slogan {
   font-family: var(--serif);
@@ -1283,17 +1268,7 @@ button { font: inherit; cursor: pointer; }
 <header class="nav">
   <div class="nav-inner">
     <a href="#accueil" class="nav-logo" aria-label="Convergence Avocats">
-      <svg width="36" height="24" viewBox="0 0 38 28" fill="none" aria-hidden="true">
-        <line x1="2" y1="2"  x2="24" y2="14" stroke="#E8ECF5" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="2" y1="14" x2="24" y2="14" stroke="#E8ECF5" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="2" y1="26" x2="24" y2="14" stroke="#E8ECF5" stroke-width="1.5" stroke-linecap="round"/>
-        <circle cx="24" cy="14" r="2" fill="#C6973F"/>
-        <line x1="26" y1="14" x2="36" y2="14" stroke="#C6973F" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-      <span class="nav-mark">
-        <span class="nav-mark-1">CONVERGENCE</span>
-        <span class="nav-mark-2">AVOCATS</span>
-      </span>
+      <img src="photos/convergence-avocats-blanc.png" alt="Convergence Avocats" class="nav-logo-img">
     </a>
 
     <ul class="nav-menu">
@@ -1775,8 +1750,8 @@ button { font: inherit; cursor: pointer; }
 <!-- ══ FOOTER ══ -->
 <footer class="footer">
   <div class="footer-main">
-    <div>
-      <div class="footer-name">CONVERGENCE AVOCATS</div>
+    <div class="footer-brand">
+      <img src="photos/convergence-avocats-blanc.png" alt="Convergence Avocats" class="footer-logo-img">
       <div class="footer-tagline">Paris · Marseille · Nice</div>
     </div>
     <p class="footer-slogan">La stratégie juridique des entreprises dans les situations complexes.</p>
