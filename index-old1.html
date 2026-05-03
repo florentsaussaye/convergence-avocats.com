@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Convergence Avocats — La stratégie juridique des entreprises dans les situations complexes</title>
+<meta name="description" content="Convergence Avocats est un réseau d'avocats d'affaires réunissant Teitgen &amp; Viottolo et Marigny Avocats. Restructuring, contentieux des affaires, droit pénal économique, droit social. Paris, Marseille, Nice.">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy:#0B1731; --navy2:#152444; --navy3:#0D1E3A;
+  --gold:#C6973F; --gold2:#E2B96A; --gold-pale:rgba(198,151,63,0.08);
+  --white:#FFFFFF; --off:#F7F5F0; --off2:#EFEDE8;
+  --text:#1A1A2E; --muted:#5E6473; --muted2:#8A909E;
+  --serif:Georgia,'Times New Roman',serif;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+}
+html { scroll-behavior:smooth; }
+body { font-family:var(--sans); color:var(--text); background:var(--white); overflow-x:hidden; line-height:1.6; }
+
+/* ══ NAVIGATION ══ */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:300;
+  background:rgba(11,23,49,0.97); backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(198,151,63,0.15);
+}
+.nav-top {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 56px; height:68px;
+}
+.nav-logo { display:flex; align-items:center; gap:13px; text-decoration:none; flex-shrink:0; }
+.nav-wordmark .n1 { font-family:var(--serif); font-size:13px; font-weight:700; color:var(--white); letter-spacing:2.5px; display:block; }
+.nav-wordmark .n2 { font-family:var(--serif); font-size:7px; color:var(--gold); letter-spacing:4px; margin-top:4px; display:block; }
+.nav-main { display:flex; gap:0; list-style:none; }
+.nav-main > li { position:relative; }
+.nav-main > li > a {
+  font-size:10.5px; letter-spacing:1.2px; text-transform:uppercase;
+  color:rgba(255,255,255,0.62); text-decoration:none; transition:color .2s;
+  padding:24px 18px; display:block;
+}
+.nav-main > li > a:hover, .nav-main > li:hover > a { color:var(--gold); }
+.has-chevron::after { content:''; display:inline-block; width:5px; height:5px; border-right:1px solid currentColor; border-bottom:1px solid currentColor; transform:rotate(45deg) translateY(-2px); margin-left:6px; vertical-align:middle; opacity:.5; }
+.nav-sub {
+  display:none; position:absolute; top:100%; left:0;
+  background:var(--navy3); border:1px solid rgba(198,151,63,0.12);
+  min-width:260px; padding:10px 0; box-shadow:0 20px 40px rgba(0,0,0,0.3);
+}
+.nav-main > li:hover .nav-sub { display:block; }
+.nav-sub a {
+  display:block; padding:11px 22px; font-size:11px; letter-spacing:.7px;
+  color:rgba(255,255,255,0.52); text-decoration:none; transition:color .2s, padding-left .2s;
+  border-left:2px solid transparent;
+}
+.nav-sub a:hover { color:var(--gold); padding-left:28px; border-left-color:var(--gold); background:rgba(198,151,63,0.04); }
+.nav-cta {
+  font-size:10.5px; letter-spacing:1.5px; text-transform:uppercase; flex-shrink:0;
+  color:var(--gold); border:1px solid var(--gold); padding:10px 24px;
+  text-decoration:none; transition:background .2s, color .2s;
+}
+.nav-cta:hover { background:var(--gold); color:var(--navy); }
+
+/* ══ HERO SPLIT ══ */
+.hero { margin-top:68px; min-height:calc(100vh - 68px); position:relative; overflow:hidden; }
+.hero-left {
+  background:transparent; padding:72px 64px; position:relative; z-index:2;
+  display:flex; flex-direction:column; justify-content:center; min-height:calc(100vh - 68px);
+}
+.hero-bg { position:absolute; inset:0; pointer-events:none; opacity:.03; }
+.hero-eyebrow {
+  font-size:9px; letter-spacing:4px; text-transform:uppercase; color:var(--gold);
+  margin-bottom:24px; display:flex; align-items:center; gap:14px;
+}
+.hero-eyebrow::before { content:''; display:block; width:32px; height:1px; background:var(--gold); }
+.hero h1 {
+  font-family:var(--serif); font-size:clamp(30px,4.2vw,64px);
+  font-weight:400; color:var(--white); line-height:1.08; margin-bottom:24px;
+}
+.hero h1 em { font-style:italic; color:var(--gold); }
+.hero-desc { font-size:14.5px; color:rgba(255,255,255,0.65); max-width:780px; line-height:1.9; margin-bottom:16px; }
+.hero-desc2 { font-size:13.5px; color:rgba(255,255,255,0.5); max-width:780px; line-height:1.85; margin-bottom:32px; }
+.hero-actions { display:flex; align-items:center; gap:22px; margin-bottom:36px; }
+.btn-primary {
+  background:var(--gold); color:var(--navy); padding:13px 30px;
+  font-size:11px; letter-spacing:1.5px; text-transform:uppercase; font-weight:700;
+  text-decoration:none; transition:background .2s; display:inline-block;
+}
+.btn-primary:hover { background:var(--gold2); }
+.btn-ghost {
+  font-size:11px; letter-spacing:1.5px; text-transform:uppercase;
+  color:rgba(255,255,255,0.45); text-decoration:none;
+  display:flex; align-items:center; gap:8px; transition:color .2s;
+}
+.btn-ghost:hover { color:var(--white); }
+.btn-ghost::after { content:'→'; transition:transform .2s; }
+.btn-ghost:hover::after { transform:translateX(3px); }
+.hero-tags { display:flex; gap:10px; flex-wrap:wrap; border-top:1px solid rgba(255,255,255,0.06); padding-top:24px; }
+.hero-tag {
+  font-size:9px; letter-spacing:1.5px; text-transform:uppercase;
+  color:rgba(255,255,255,0.28); padding:6px 14px; border:1px solid rgba(255,255,255,0.08);
+}
+.hero-right { position:absolute; inset:0; z-index:0; overflow:hidden; background:var(--navy2); }
+.hero-photo { width:100%; height:100%; object-fit:cover; object-position:center 30%; filter:brightness(.28) saturate(.55); display:block; }
+.hero-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to right, rgba(11,23,49,.85) 0%, rgba(11,23,49,.55) 60%, rgba(11,23,49,.75) 100%),
+             linear-gradient(to top, rgba(11,23,49,.7) 0%, transparent 45%);
+}
+.hero-caption { position:absolute; bottom:24px; right:24px; font-size:8.5px; letter-spacing:1.5px; color:rgba(255,255,255,.2); text-transform:uppercase; }
+.hero-arch-fallback { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; }
+
+/* ══ RECONNAISSANCE ══ */
+.reco {
+  background:var(--navy3); border-top:1px solid rgba(198,151,63,0.12);
+  border-bottom:1px solid rgba(198,151,63,0.12); padding:36px 56px;
+  display:flex; align-items:center; gap:56px;
+}
+.reco-label { font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); white-space:nowrap; flex-shrink:0; }
+.reco-divider { width:1px; height:32px; background:rgba(198,151,63,0.2); flex-shrink:0; }
+.reco-items { display:flex; gap:48px; flex-wrap:wrap; }
+.reco-item { font-size:12px; color:rgba(255,255,255,.38); line-height:1.6; }
+.reco-item strong { display:block; font-size:13px; color:rgba(255,255,255,.65); font-weight:500; font-family:var(--serif); margin-bottom:2px; }
+
+/* ══ SECTIONS GÉNÉRIQUES ══ */
+section { padding:100px 56px; }
+.section-label { font-size:9px; letter-spacing:3.5px; text-transform:uppercase; color:var(--gold); margin-bottom:16px; display:flex; align-items:center; gap:12px; }
+.section-label::before { content:''; display:block; width:22px; height:1px; background:var(--gold); }
+.section-title { font-family:var(--serif); font-size:clamp(24px,2.8vw,40px); font-weight:400; color:var(--navy); line-height:1.15; margin-bottom:14px; }
+.section-title em { font-style:italic; color:var(--gold); }
+.section-intro { font-size:15px; color:var(--muted); max-width:640px; line-height:1.9; margin-bottom:48px; }
+
+/* ══ EXPERTISES ══ */
+.expertises { background:var(--off); }
+.exp-header { display:grid; grid-template-columns:1fr 1fr; gap:60px; margin-bottom:52px; align-items:end; }
+.exp-header-text { font-size:14px; color:var(--muted); line-height:1.88; }
+
+.exp-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:rgba(198,151,63,0.15); border:1px solid rgba(198,151,63,0.15); margin-bottom:40px; }
+.exp-card {
+  background:var(--off); padding:32px 22px 36px;
+  position:relative; overflow:hidden; cursor:default; transition:background .3s;
+  display:flex; flex-direction:column;
+}
+.exp-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:var(--gold); transform:scaleX(0); transition:transform .35s ease; }
+.exp-card:hover::after { transform:scaleX(1); }
+.exp-card:hover { background:var(--white); }
+.exp-num { font-family:var(--serif); font-size:44px; font-weight:700; color:rgba(198,151,63,0.1); line-height:1; margin-bottom:16px; }
+.exp-title { font-family:var(--serif); font-size:14px; font-weight:700; color:var(--navy); margin-bottom:14px; line-height:1.3; }
+.exp-text { font-size:12px; color:var(--muted); line-height:1.85; flex:1; }
+.exp-text + .exp-text { margin-top:10px; }
+.exp-tags { margin-top:16px; display:flex; flex-wrap:wrap; gap:6px; }
+.exp-tag { font-size:9px; letter-spacing:.8px; color:var(--gold); border:1px solid rgba(198,151,63,.3); padding:3px 9px; }
+
+/* ══ ENCART TRANSVERSALITÉ ══ */
+.transversalite {
+  background:var(--gold); padding:40px 56px;
+  display:grid; grid-template-columns:auto 1fr; gap:40px; align-items:center;
+  border-top:none;
+}
+.transversalite-mark { font-family:var(--serif); font-size:56px; color:rgba(11,23,49,.12); font-weight:700; line-height:1; white-space:nowrap; }
+.transversalite-text h3 { font-family:var(--serif); font-size:18px; color:var(--navy); margin-bottom:10px; font-weight:700; }
+.transversalite-text p { font-size:13px; color:rgba(11,23,49,.65); line-height:1.82; max-width:780px; }
+
+/* ══ ÉQUIPE ══ */
+.equipe { background:var(--white); }
+.team-header-bar { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:52px; }
+.team-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:28px; }
+
+.team-card { border:1px solid rgba(11,23,49,0.07); overflow:hidden; transition:box-shadow .3s; }
+.team-card:hover { box-shadow:0 20px 60px rgba(11,23,49,.08); }
+
+/* Zone photo */
+.team-photo-zone {
+  aspect-ratio: 1 / 1; background:var(--navy); position:relative; overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer;
+}
+.team-photo-zone img {
+  width:100%; height:100%; object-fit:cover; object-position:center;
+  display:block; transition:transform .4s ease;
+}
+.team-card:hover .team-photo-zone img { transform:scale(1.03); }
+/* Placeholder si pas de photo */
+.team-photo-placeholder {
+  width:100%; height:100%; background:var(--navy2);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px;
+  position:absolute; inset:0;
+}
+.team-photo-initiales { font-family:var(--serif); font-size:72px; font-weight:700; color:rgba(255,255,255,.06); line-height:1; }
+.team-photo-hint { font-size:9px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.18); }
+.team-photo-icon { font-size:18px; color:rgba(198,151,63,.35); }
+.team-photo-gradient { position:absolute; bottom:0; left:0; right:0; height:80px; background:linear-gradient(to top, var(--navy), transparent); }
+
+.team-bar { height:2px; background:var(--gold); transform:scaleX(0); transform-origin:left; transition:transform .4s ease; }
+.team-card:hover .team-bar { transform:scaleX(1); }
+
+.team-info { padding:28px 28px 32px; }
+.team-nom { font-family:var(--serif); font-size:22px; font-weight:700; color:var(--navy); margin-bottom:4px; }
+.team-role { font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+.team-cabinet { font-size:11px; color:var(--muted2); margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid rgba(11,23,49,0.06); }
+.team-qualif { font-size:11.5px; color:#888; letter-spacing:.3px; margin-bottom:16px; font-style:italic; }
+.team-bio { font-size:13px; color:var(--muted); line-height:1.85; margin-bottom:12px; }
+.team-domaines { margin-top:18px; display:flex; flex-wrap:wrap; gap:6px; }
+.team-domaine { font-size:9px; letter-spacing:.8px; color:var(--gold); border:1px solid rgba(198,151,63,.25); padding:4px 10px; }
+
+/* ══ SITUATIONS DE CRISE ══ */
+.situations { background:var(--navy); padding:100px 56px; position:relative; overflow:hidden; }
+.situations-bg { position:absolute; inset:0; pointer-events:none; opacity:.025; }
+.sit-inner { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:start; }
+.sit-sup { font-size:9px; letter-spacing:3.5px; text-transform:uppercase; color:var(--gold); margin-bottom:16px; display:flex; align-items:center; gap:12px; }
+.sit-sup::before { content:''; display:block; width:22px; height:1px; background:var(--gold); }
+.sit-h2 { font-family:var(--serif); font-size:clamp(24px,3vw,40px); font-weight:400; color:var(--white); line-height:1.15; margin-bottom:24px; }
+.sit-h2 em { font-style:italic; color:var(--gold); }
+.sit-text { font-size:14px; color:rgba(255,255,255,.44); line-height:1.9; margin-bottom:16px; }
+.sit-items { display:flex; flex-direction:column; gap:0; border:1px solid rgba(198,151,63,.12); }
+.sit-item {
+  padding:28px 28px 28px 24px; border-left:2px solid transparent;
+  border-bottom:1px solid rgba(198,151,63,.08); transition:border-color .3s, background .3s;
+  cursor:default;
+}
+.sit-item:last-child { border-bottom:none; }
+.sit-item:hover { border-left-color:var(--gold); background:rgba(198,151,63,.04); }
+.sit-num { font-family:var(--serif); font-size:28px; font-weight:700; color:rgba(198,151,63,.1); margin-bottom:8px; line-height:1; }
+.sit-titre { font-family:var(--serif); font-size:16px; color:var(--gold); margin-bottom:10px; }
+.sit-texte { font-size:13px; color:rgba(255,255,255,.36); line-height:1.82; }
+
+/* ══ APPROCHE ══ */
+.approche { display:grid; grid-template-columns:1fr 1fr; padding:0; background:var(--navy2); }
+.approche-left { padding:100px 64px 100px 56px; border-right:1px solid rgba(198,151,63,.1); }
+.approche-left .section-label { color:var(--gold); }
+.approche-left .section-title { color:var(--white); }
+.approche-quote {
+  font-family:var(--serif); font-size:19px; font-style:italic;
+  color:rgba(255,255,255,.82); line-height:1.65;
+  border-left:2px solid var(--gold); padding-left:24px; margin:28px 0 32px;
+}
+.approche-body { font-size:14px; color:rgba(255,255,255,.4); line-height:1.9; margin-bottom:14px; }
+.approche-right { padding:100px 56px 100px 64px; display:flex; flex-direction:column; gap:28px; }
+.valeur { padding-bottom:28px; border-bottom:1px solid rgba(255,255,255,.06); }
+.valeur:last-child { border-bottom:none; padding-bottom:0; }
+.valeur-titre { font-family:var(--serif); font-size:18px; color:var(--gold); margin-bottom:10px; }
+.valeur-text { font-size:13.5px; color:rgba(255,255,255,.37); line-height:1.85; }
+
+/* ══ LE RÉSEAU ══ */
+.reseau { display:grid; grid-template-columns:1fr 1fr; background:var(--white); }
+.reseau-left { padding:100px 64px 100px 56px; border-right:1px solid rgba(11,23,49,.06); }
+.reseau-right { background:var(--off); padding:100px 56px 100px 64px; display:flex; flex-direction:column; justify-content:center; gap:24px; }
+.cabinet-card { padding:28px 28px 28px 24px; border:1px solid rgba(11,23,49,.08); background:var(--white); position:relative; overflow:hidden; }
+.cabinet-card::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--gold); }
+.cabinet-nom { font-family:var(--serif); font-size:17px; font-weight:700; color:var(--navy); margin-bottom:12px; }
+.cabinet-desc { font-size:13px; color:var(--muted); line-height:1.82; }
+
+/* ══ CONTACT ══ */
+.contact { display:grid; grid-template-columns:1fr 1fr; padding:0; background:var(--navy); }
+.contact-left { padding:100px 64px 100px 56px; border-right:1px solid rgba(198,151,63,.1); }
+.contact-left .section-title { color:var(--white); }
+.contact-intro { font-size:14px; color:rgba(255,255,255,.38); line-height:1.88; max-width:400px; margin-bottom:48px; }
+.contact-villes { display:flex; flex-direction:column; gap:24px; }
+.ville-nom { font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:5px; }
+.ville-info { font-size:13px; color:rgba(255,255,255,.3); line-height:1.7; }
+.contact-right { padding:100px 56px 100px 64px; display:flex; flex-direction:column; justify-content:center; }
+.form-title { font-family:var(--serif); font-size:20px; color:var(--gold); margin-bottom:28px; }
+.form-group { margin-bottom:18px; }
+.form-group label { display:block; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.25); margin-bottom:7px; }
+.form-group input, .form-group textarea, .form-group select {
+  width:100%; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.1);
+  padding:12px 14px; font-size:13px; color:var(--white); font-family:var(--sans);
+  outline:none; transition:border-color .2s; appearance:none; border-radius:0;
+}
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color:var(--gold); background:rgba(198,151,63,.04); }
+.form-group select option { background:var(--navy); color:var(--white); }
+.form-group textarea { height:110px; resize:none; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.form-note { font-size:10px; color:rgba(255,255,255,.2); margin-top:10px; line-height:1.6; }
+.btn-submit {
+  background:var(--gold); color:var(--navy); border:none; padding:14px 36px;
+  font-size:11px; letter-spacing:1.5px; text-transform:uppercase; font-weight:700;
+  cursor:pointer; transition:background .2s; margin-top:6px;
+}
+.btn-submit:hover { background:var(--gold2); }
+
+/* ══ FOOTER ══ */
+footer { background:#060D1E; padding:0; border-top:1px solid rgba(198,151,63,.1); }
+.footer-main { display:flex; align-items:center; justify-content:space-between; padding:36px 56px; border-bottom:1px solid rgba(255,255,255,.04); }
+.footer-name { font-family:var(--serif); font-size:13.5px; font-weight:700; color:var(--white); letter-spacing:2px; }
+.footer-tagline { font-size:9px; letter-spacing:2.5px; color:rgba(255,255,255,.18); margin-top:5px; }
+.footer-slogan { font-family:var(--serif); font-size:11.5px; font-style:italic; color:rgba(255,255,255,.25); text-align:center; max-width:400px; }
+.footer-url { font-size:11px; color:var(--gold); text-decoration:none; display:block; text-align:right; }
+.footer-url:hover { color:var(--gold2); }
+.footer-legal-bar { display:flex; align-items:center; justify-content:space-between; padding:14px 56px; }
+.footer-legal { font-size:9px; color:rgba(255,255,255,.16); }
+.footer-legal-links { display:flex; gap:24px; }
+.footer-legal-links a { font-size:9px; color:rgba(255,255,255,.22); text-decoration:none; transition:color .2s; }
+.footer-legal-links a:hover { color:var(--gold); }
+
+/* ══ STICKY CTA ══ */
+.sticky-rdv {
+  position:fixed; bottom:24px; right:24px; z-index:200;
+  background:var(--gold); color:var(--navy); padding:12px 24px;
+  font-size:10px; letter-spacing:1.5px; text-transform:uppercase; font-weight:700;
+  text-decoration:none; box-shadow:0 8px 32px rgba(198,151,63,.35);
+  transition:transform .2s, box-shadow .2s; display:flex; align-items:center; gap:8px;
+}
+.sticky-rdv:hover { transform:translateY(-2px); box-shadow:0 12px 40px rgba(198,151,63,.45); }
+.sticky-rdv svg { width:14px; height:14px; }
+
+.team-tel { font-size:12px; color:var(--muted2); margin-top:14px; padding-top:14px; border-top:1px solid rgba(11,23,49,.06); display:flex; align-items:center; gap:8px; }
+.team-tel a { color:var(--gold); text-decoration:none; font-size:12px; transition:color .2s; }
+.team-tel a:hover { color:var(--gold2); }
+.team-tel svg { width:13px; height:13px; color:var(--muted2); flex-shrink:0; }
+
+.decideurs-band { background:var(--navy3); border-top:1px solid rgba(198,151,63,.12); border-bottom:1px solid rgba(198,151,63,.12); padding:32px 56px; display:flex; align-items:center; gap:40px; }
+.decideurs-logo { font-family:var(--serif); font-size:13px; font-weight:700; color:var(--gold); letter-spacing:.5px; white-space:nowrap; flex-shrink:0; }
+.decideurs-logo span { display:block; font-size:8.5px; font-weight:400; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.3); margin-top:3px; font-family:var(--sans); }
+.decideurs-sep { width:1px; height:48px; background:rgba(198,151,63,.2); flex-shrink:0; }
+.decideurs-items { display:flex; gap:36px; flex-wrap:wrap; }
+.decideurs-item { display:flex; flex-direction:column; gap:4px; }
+.decideurs-badge { display:inline-flex; align-items:center; gap:6px; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold); font-weight:700; }
+.decideurs-badge::before { content:'★'; font-size:11px; }
+.decideurs-cat { font-size:11px; color:rgba(255,255,255,.45); line-height:1.5; max-width:220px; }
+
+/* Mentions légales modal */
+.ml-overlay { display:none; position:fixed; inset:0; background:rgba(11,23,49,.92); z-index:500; overflow-y:auto; padding:40px 20px; }
+.ml-overlay.open { display:flex; justify-content:center; }
+.ml-box { background:var(--white); max-width:780px; width:100%; padding:52px 56px; position:relative; }
+.ml-close { position:absolute; top:20px; right:24px; background:none; border:none; font-size:24px; cursor:pointer; color:var(--muted); line-height:1; }
+.ml-close:hover { color:var(--navy); }
+.ml-h1 { font-family:var(--serif); font-size:28px; font-weight:400; color:var(--navy); margin-bottom:28px; }
+.ml-h2 { font-family:var(--serif); font-size:16px; font-weight:700; color:var(--navy); margin:24px 0 8px; }
+.ml-p { font-size:13px; color:var(--muted); line-height:1.82; margin-bottom:8px; }
+
+.fade-up { opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease; }
+.fade-up.visible { opacity:1; transform:translateY(0); }
+.fade-up:nth-child(2) { transition-delay:.08s; }
+.fade-up:nth-child(3) { transition-delay:.16s; }
+.fade-up:nth-child(4) { transition-delay:.24s; }
+</style>
+</head>
+<body>
+
+<!-- STICKY CTA -->
+<a href="#contact" class="sticky-rdv">
+  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+  Nous contacter
+</a>
+
+<!-- ══ NAVIGATION ══ -->
+<nav>
+  <div class="nav-top">
+    <a href="#" class="nav-logo">
+      <svg width="34" height="22" viewBox="0 0 38 28" fill="none">
+        <line x1="2" y1="2"  x2="24" y2="14" stroke="#E8ECF5" stroke-width="1.4" stroke-linecap="round"/>
+        <line x1="2" y1="14" x2="24" y2="14" stroke="#E8ECF5" stroke-width="1.4" stroke-linecap="round"/>
+        <line x1="2" y1="26" x2="24" y2="14" stroke="#E8ECF5" stroke-width="1.4" stroke-linecap="round"/>
+        <circle cx="24" cy="14" r="1.8" fill="#C6973F"/>
+        <line x1="25.5" y1="14" x2="36" y2="14" stroke="#C6973F" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      <div class="nav-wordmark"><span class="n1">CONVERGENCE</span><span class="n2">AVOCATS</span></div>
+    </a>
+
+    <ul class="nav-main">
+      <li>
+        <a href="#expertises" class="has-chevron">Expertises</a>
+        <div class="nav-sub">
+          <a href="#expertises">Corporate et droit des sociétés</a>
+          <a href="#expertises">Droit social</a>
+          <a href="#expertises">Restructuring et situations spéciales</a>
+          <a href="#expertises">Contentieux des affaires</a>
+          <a href="#expertises">Droit pénal des affaires</a>
+        </div>
+      </li>
+      <li><a href="#equipe">L'équipe</a></li>
+      <li><a href="#situations">Situations de crise</a></li>
+      <li><a href="#reseau">Le réseau</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <a href="#contact" class="nav-cta">Prendre contact</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<div class="hero" id="accueil">
+  <div class="hero-left">
+    <svg class="hero-bg" viewBox="0 0 600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="0"   x2="350" y2="450" stroke="white" stroke-width=".8"/>
+      <line x1="0" y1="130" x2="350" y2="450" stroke="white" stroke-width=".8"/>
+      <line x1="0" y1="260" x2="350" y2="450" stroke="white" stroke-width=".8"/>
+      <line x1="0" y1="390" x2="350" y2="450" stroke="white" stroke-width=".8"/>
+      <line x1="0" y1="450" x2="350" y2="450" stroke="white" stroke-width=".8"/>
+      <line x1="0" y1="510" x2="350" y2="450" stroke="white" stroke-width=".8"/>
+      <line x1="0" y1="640" x2="350" y2="450" stroke="white" stroke-width=".8"/>
+      <line x1="0" y1="770" x2="350" y2="450" stroke="white" stroke-width=".8"/>
+      <line x1="0" y1="900" x2="350" y2="450" stroke="white" stroke-width=".8"/>
+      <line x1="350" y1="450" x2="600" y2="450" stroke="#C6973F" stroke-width="1.2"/>
+    </svg>
+
+    <p class="hero-eyebrow">Réseau d'avocats d'affaires · Paris · Marseille · Nice</p>
+
+    <h1>La stratégie juridique des entreprises dans les <em>situations complexes.</em></h1>
+
+    <p class="hero-desc">Convergence Avocats réunit les expertises complémentaires des cabinets Teitgen &amp; Viottolo et Marigny Avocats au sein d'un réseau d'avocats d'affaires indépendants partageant une même exigence d'excellence et une approche résolument stratégique des dossiers.</p>
+
+    <p class="hero-desc2">Le réseau accompagne dirigeants, entreprises et investisseurs dans leurs opérations et contentieux stratégiques, en particulier lorsque les enjeux corporate, financiers, sociaux et pénaux sont étroitement imbriqués. Dans ces situations, la coordination des disciplines du droit n'est pas une option : c'est la condition d'une réponse juridique véritablement efficace.</p>
+
+    <div class="hero-actions">
+      <a href="#expertises" class="btn-primary">Découvrir nos expertises</a>
+      <a href="#equipe" class="btn-ghost">Rencontrer l'équipe</a>
+    </div>
+
+    <div class="hero-tags">
+      <span class="hero-tag">Teitgen &amp; Viottolo</span>
+      <span class="hero-tag">Marigny Avocats</span>
+      <span class="hero-tag">Restructuring</span>
+      <span class="hero-tag">Contentieux</span>
+      <span class="hero-tag">Pénal des affaires</span>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <!-- Photo Tribunal de Commerce de Paris. Remplacer src par l'URL définitive. -->
+    <img class="hero-photo"
+         src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Paris_-_Tribunal_de_Commerce_-_panoramio.jpg/1280px-Paris_-_Tribunal_de_Commerce_-_panoramio.jpg"
+         alt="Tribunal de commerce de Paris, île de la Cité"
+         onerror="this.style.display='none'">
+    <div class="hero-overlay"></div>
+    <div class="hero-arch-fallback">
+      <svg width="300" height="440" viewBox="0 0 300 440" fill="none" style="opacity:.1">
+        <rect x="10" y="280" width="280" height="160" fill="none" stroke="white" stroke-width=".7"/>
+        <line x1="10" y1="280" x2="290" y2="280" stroke="white" stroke-width=".7"/>
+        <rect x="30" y="240" width="16" height="200" fill="none" stroke="white" stroke-width=".7"/>
+        <rect x="68" y="240" width="16" height="200" fill="none" stroke="white" stroke-width=".7"/>
+        <rect x="106" y="240" width="16" height="200" fill="none" stroke="white" stroke-width=".7"/>
+        <rect x="144" y="240" width="16" height="200" fill="none" stroke="white" stroke-width=".7"/>
+        <rect x="182" y="240" width="16" height="200" fill="none" stroke="white" stroke-width=".7"/>
+        <rect x="220" y="240" width="16" height="200" fill="none" stroke="white" stroke-width=".7"/>
+        <rect x="258" y="240" width="16" height="200" fill="none" stroke="white" stroke-width=".7"/>
+        <polygon points="10,240 150,140 290,240" fill="none" stroke="white" stroke-width=".7"/>
+        <ellipse cx="150" cy="110" rx="55" ry="72" fill="none" stroke="white" stroke-width=".7"/>
+        <line x1="95" y1="110" x2="205" y2="110" stroke="white" stroke-width=".5"/>
+        <ellipse cx="150" cy="46" rx="16" ry="22" fill="none" stroke="white" stroke-width=".7"/>
+        <line x1="150" y1="24" x2="150" y2="8" stroke="white" stroke-width=".7"/>
+        <path d="M 30 440 L 30 350 Q 38 316 46 350 L 46 440" fill="none" stroke="white" stroke-width=".4"/>
+        <path d="M 68 440 L 68 350 Q 76 316 84 350 L 84 440" fill="none" stroke="white" stroke-width=".4"/>
+        <path d="M 106 440 L 106 350 Q 114 316 122 350 L 122 440" fill="none" stroke="white" stroke-width=".4"/>
+        <path d="M 144 440 L 144 350 Q 152 316 160 350 L 160 440" fill="none" stroke="white" stroke-width=".4"/>
+        <path d="M 182 440 L 182 350 Q 190 316 198 350 L 198 440" fill="none" stroke="white" stroke-width=".4"/>
+        <path d="M 220 440 L 220 350 Q 228 316 236 350 L 236 440" fill="none" stroke="white" stroke-width=".4"/>
+        <path d="M 258 440 L 258 350 Q 266 316 274 350 L 274 440" fill="none" stroke="white" stroke-width=".4"/>
+      </svg>
+    </div>
+    <div class="hero-caption">Tribunal de commerce de Paris · Île de la Cité · Paris IV<sup>e</sup></div>
+  </div>
+</div>
+
+<!-- ══ BANDE RECONNAISSANCE ══ -->
+<div class="reco">
+  <span class="reco-label">Reconnaissance</span>
+  <div class="reco-divider"></div>
+  <div class="reco-items">
+    <div class="reco-item"><strong>Décideurs Magazine — « Excellent »</strong>Conseil des Mandataires &amp; Administrateurs judiciaires</div>
+    <div class="reco-divider"></div>
+    <div class="reco-item"><strong>Décideurs Magazine — « Excellent »</strong>Conseil des entreprises et actionnaires</div>
+    <div class="reco-divider"></div>
+    <div class="reco-item"><strong>Décideurs Magazine — « Excellent »</strong>Droit pénal des affaires</div>
+    <div class="reco-divider"></div>
+    <div class="reco-item"><strong>Réseau pluridisciplinaire</strong>Corporate · Social · Restructuring · Pénal · Contentieux</div>
+  </div>
+</div>
+
+<!-- ══ BANDE DÉCIDEURS MAGAZINE ══ -->
+<div class="decideurs-band">
+  <div class="decideurs-logo">
+    Décideurs Magazine
+    <span>Classements juridiques</span>
+  </div>
+  <div class="decideurs-sep"></div>
+  <div class="decideurs-items">
+    <div class="decideurs-item">
+      <div class="decideurs-badge">Excellent</div>
+      <div class="decideurs-cat">Conseil des Mandataires<br>&amp; Administrateurs judiciaires</div>
+    </div>
+    <div class="decideurs-sep"></div>
+    <div class="decideurs-item">
+      <div class="decideurs-badge">Excellent</div>
+      <div class="decideurs-cat">Conseil des entreprises<br>&amp; actionnaires</div>
+    </div>
+    <div class="decideurs-sep"></div>
+    <div class="decideurs-item">
+      <div class="decideurs-badge">Excellent</div>
+      <div class="decideurs-cat">Droit pénal<br>des affaires</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 1 — EXPERTISES ══ -->
+<section class="expertises" id="expertises">
+  <div class="exp-header fade-up">
+    <div>
+      <p class="section-label">Domaines d'intervention</p>
+      <h2 class="section-title">Cinq pôles d'expertise<br>au service de <em>vos enjeux</em></h2>
+    </div>
+    <p class="exp-header-text">
+      La force de Convergence Avocats réside dans sa capacité à mobiliser, de façon coordonnée, plusieurs disciplines du droit autour d'une même situation. Dans les dossiers complexes — là où les enjeux corporate, financiers, sociaux et pénaux sont étroitement liés — cette approche transversale constitue un avantage décisif pour nos clients. Chaque expertise est portée par des avocats reconnus dans leur domaine, habitués à intervenir dans des dossiers à forts enjeux stratégiques, économiques et réputationnels.
+    </p>
+  </div>
+
+  <div class="exp-grid fade-up">
+    <div class="exp-card">
+      <div class="exp-num">01</div>
+      <div class="exp-title">Corporate et droit des sociétés</div>
+      <p class="exp-text">Convergence Avocats accompagne entreprises, dirigeants, actionnaires et investisseurs dans l'ensemble de leurs opérations de droit des sociétés. Les avocats du réseau interviennent notamment dans les opérations d'acquisition ou de cession de sociétés, les opérations sur capital, les levées de fonds et les réorganisations de groupes, en intégrant dans leur analyse les dimensions financières, fiscales et stratégiques de chaque opération.</p>
+      <p class="exp-text">Ils assistent également leurs clients dans la structuration des relations entre associés et dans les questions de gouvernance, notamment à l'occasion de la rédaction et de la négociation de pactes d'actionnaires ou de la mise en place de structures sociétaires adaptées aux enjeux économiques et aux équilibres capitalistiques recherchés.</p>
+      <p class="exp-text">Le réseau intervient par ailleurs dans les contentieux liés à la vie des sociétés — litiges entre associés, différends portant sur la gouvernance ou le contrôle des entreprises — en apportant une vision qui intègre d'emblée les dimensions judiciaires, financières et stratégiques du différend.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">M&A</span><span class="exp-tag">Gouvernance</span><span class="exp-tag">Pactes</span><span class="exp-tag">LBO</span>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-num">02</div>
+      <div class="exp-title">Droit social</div>
+      <p class="exp-text">Convergence Avocats accompagne les entreprises et leurs dirigeants dans la gestion des problématiques sociales présentant des enjeux juridiques, économiques ou organisationnels significatifs, tant en conseil qu'en contentieux. Les avocats du réseau interviennent notamment dans le cadre de restructurations d'entreprises impliquant des réorganisations sociales, de procédures de licenciements économiques collectifs, ainsi que dans la conduite des relations avec les instances représentatives du personnel.</p>
+      <p class="exp-text">Ils assistent également leurs clients dans la gestion des contentieux prud'homaux et des litiges individuels ou collectifs du travail, notamment lorsque ces contentieux présentent des enjeux financiers, organisationnels ou réputationnels significatifs. Le cabinet intervient par ailleurs dans des contentieux sociaux à risque ainsi qu'en droit pénal du travail, accompagnant dirigeants et entreprises dans les procédures mettant en cause leur responsabilité au titre de la relation de travail.</p>
+      <p class="exp-text">L'expertise du réseau permet d'appréhender ces questions sociales en tenant compte des enjeux plus larges de gouvernance, de restructuration ou de contentieux économique qui peuvent se trouver étroitement liés à la gestion des ressources humaines.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">PSE</span><span class="exp-tag">IRP</span><span class="exp-tag">Prud'hommes</span><span class="exp-tag">Pénal social</span>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-num">03</div>
+      <div class="exp-title">Restructuring et situations spéciales</div>
+      <p class="exp-text">Convergence Avocats intervient régulièrement aux côtés des sociétés et de leurs dirigeants, d'investisseurs et de créanciers dans les opérations de restructuration d'entreprises et dans la gestion de situations dites « spéciales ». Les avocats du réseau accompagnent leurs clients dans l'ensemble des procédures de prévention et de traitement des difficultés des entreprises, notamment dans le cadre de mandats ad hoc, de procédures de conciliation et de procédures collectives — sauvegarde, redressement judiciaire, liquidation judiciaire.</p>
+      <p class="exp-text">Ils interviennent également dans les opérations de restructuration financière, les négociations avec les créanciers, ainsi que dans les opérations de cession d'actifs ou d'entreprises en difficulté, en accompagnant acquéreurs, vendeurs ou débiteurs selon les configurations de chaque dossier. La pratique du restructuring développée au sein du réseau est reconnue par les professionnels du secteur ainsi que par la presse spécialisée.</p>
+      <p class="exp-text">Le réseau intervient de façon régulière dans la défense des organes de la procédure collective, notamment aux côtés d'administrateurs judiciaires et de mandataires judiciaires dans le cadre de contentieux liés aux procédures collectives.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">Mandat ad hoc</span><span class="exp-tag">Conciliation</span><span class="exp-tag">Sauvegarde</span><span class="exp-tag">RJ / LJ</span>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-num">04</div>
+      <div class="exp-title">Contentieux des affaires</div>
+      <p class="exp-text">Convergence Avocats intervient aux côtés des entreprises, de leurs dirigeants et de leurs actionnaires dans la conduite de contentieux à forts enjeux, là où la technicité juridique ne suffit pas et où la décision stratégique devient déterminante. Chaque dossier est appréhendé comme une situation singulière, inscrite dans un environnement économique, humain et réputationnel qu'il convient de maîtriser avec précision.</p>
+      <p class="exp-text">Le cabinet développe une approche exigeante du contentieux, fondée sur l'anticipation, la compréhension des rapports de force et la capacité à inscrire l'action judiciaire dans une stratégie globale au service des intérêts du client. Les associés disposent d'une connaissance directe des problématiques des dirigeants, de leurs responsabilités et des contraintes inhérentes à la conduite des affaires — ce qui leur permet d'apporter des réponses adaptées, éclairées et immédiatement opérationnelles.</p>
+      <p class="exp-text">Convergence Avocats intervient dans des contentieux commerciaux et stratégiques, des conflits entre associés, des litiges de gouvernance, des situations de rupture ou de déstabilisation économique, ainsi que dans des procédures d'urgence lorsque la réactivité et la précision de l'analyse conditionnent l'issue du litige.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">Référé</span><span class="exp-tag">Arbitrage</span><span class="exp-tag">Conflits associés</span><span class="exp-tag">Gouvernance</span>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-num">05</div>
+      <div class="exp-title">Droit pénal des affaires</div>
+      <p class="exp-text">Convergence Avocats intervient dans l'ensemble des domaines du droit pénal économique et financier, aux côtés de dirigeants, d'entreprises et d'institutions confrontés à des procédures pénales ou à des enquêtes mettant en cause leur responsabilité. Les avocats du réseau assistent leurs clients à tous les stades de la procédure pénale — enquêtes préliminaires, instructions judiciaires, procédures devant les juridictions répressives — avec la rigueur et la discrétion que ces situations imposent.</p>
+      <p class="exp-text">Ils interviennent notamment dans des dossiers impliquant des infractions économiques et financières telles que les abus de biens sociaux, les infractions liées à la gestion des entreprises, les fraudes ou les atteintes à la probité. Cette pratique s'appuie notamment sur l'expérience de Maître Francis Teitgen, ancien Bâtonnier de l'Ordre des avocats de Paris et pénaliste reconnu, intervenant depuis de nombreuses années dans des dossiers économiques et professionnels sensibles.</p>
+      <p class="exp-text">La complémentarité des expertises du réseau permet d'intervenir dans des dossiers dans lesquels les enjeux pénaux se combinent avec des problématiques de gouvernance des sociétés, de restructuration d'entreprises ou de contentieux économiques complexes, en apportant une réponse juridique globale et coordonnée.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">ABS</span><span class="exp-tag">Fraude</span><span class="exp-tag">Probité</span><span class="exp-tag">Gestion de crise</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Encart transversalité -->
+  <div class="transversalite fade-up">
+    <div class="transversalite-mark">∩</div>
+    <div class="transversalite-text">
+      <h3>L'approche transversale : notre différence</h3>
+      <p>Dans les situations les plus complexes, les enjeux juridiques ne se présentent jamais de façon isolée. Une restructuration mobilise le droit des procédures collectives, le droit social, le droit des sûretés et parfois le droit pénal. Un conflit entre associés touche simultanément au droit des sociétés, au contentieux et à la fiscalité. C'est précisément dans ces configurations que la valeur ajoutée de Convergence Avocats est la plus décisive : la capacité à coordonner plusieurs disciplines du droit au service d'une stratégie globale cohérente, sans cloisonnement ni fragmentation de l'analyse.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 2 — ÉQUIPE ══ -->
+<section class="equipe" id="equipe">
+  <div class="team-header-bar fade-up">
+    <div>
+      <p class="section-label">L'équipe</p>
+      <h2 class="section-title">Les associés<br>du réseau</h2>
+    </div>
+    <p style="font-size:14px; color:var(--muted); max-width:400px; line-height:1.85; text-align:right;">
+      Quatre associés reconnus, issus de deux cabinets indépendants, réunis autour d'une même culture de l'excellence et de l'engagement client dans les dossiers les plus complexes et les plus sensibles.
+    </p>
+  </div>
+
+  <div class="team-grid">
+
+    <!-- Francis Teitgen -->
+    <div class="team-card fade-up">
+      <div class="team-photo-zone">
+        <img src="photos/francis-teitgen.jpg" alt="Francis Teitgen">
+        <div class="team-photo-gradient"></div>
+      </div>
+      <div class="team-bar"></div>
+      <div class="team-info">
+        <div class="team-nom">Francis Teitgen</div>
+        <div class="team-role">Contentieux des affaires · Pénal économique · Droit social</div>
+        <div class="team-cabinet">Cabinet Teitgen &amp; Viottolo · Avocat au barreau de Paris</div>
+        <p class="team-qualif">Ancien Bâtonnier de l'Ordre des avocats de Paris</p>
+        <p class="team-bio">Francis Teitgen est un avocat au barreau de Paris reconnu pour sa pratique du contentieux des affaires, du droit pénal économique et du droit social. Pénaliste expérimenté, il intervient depuis de nombreuses années dans des dossiers sensibles impliquant des dirigeants, des entreprises et des institutions, notamment dans des procédures pénales économiques et financières ainsi que dans des contentieux stratégiques liés à la vie des entreprises.</p>
+        <p class="team-bio">Ancien Bâtonnier de l'Ordre des avocats de Paris, il a occupé de nombreuses responsabilités au sein de la profession et est régulièrement sollicité dans des contentieux professionnels ou disciplinaires impliquant des acteurs du monde économique ou des professions réglementées. Au cours de sa carrière, Francis Teitgen a également exercé comme associé du cabinet international Weil, Gotshal &amp; Manges, où il a développé une pratique reconnue du contentieux économique et financier.</p>
+        <p class="team-bio">Il intervient aujourd'hui aux côtés de dirigeants, d'entreprises et d'institutions dans la gestion de contentieux complexes et de dossiers à forte sensibilité médiatique ou économique, en particulier lorsque les enjeux pénaux se combinent avec des problématiques de gouvernance, de responsabilité des dirigeants ou de droit social. Son expérience et son autorité professionnelle en font un interlocuteur reconnu dans les dossiers sensibles et stratégiques du droit des affaires.</p>
+        <div class="team-domaines">
+          <span class="team-domaine">Pénal économique</span>
+          <span class="team-domaine">Contentieux</span>
+          <span class="team-domaine">Droit social</span>
+          <span class="team-domaine">Gouvernance</span>
+        </div>
+        <div class="team-tel">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          <a href="tel:+33607473380">06.07.47.33.80</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Agnès Viottolo -->
+    <div class="team-card fade-up">
+      <div class="team-photo-zone">
+        <img src="photos/agnes-viottolo.jpg" alt="Agnès Viottolo">
+        <div class="team-photo-gradient"></div>
+      </div>
+      <div class="team-bar"></div>
+      <div class="team-info">
+        <div class="team-nom">Agnès Viottolo</div>
+        <div class="team-role">Droit social · Restructurations sociales · Contentieux</div>
+        <div class="team-cabinet">Cabinet Teitgen &amp; Viottolo · Avocat au barreau de Paris</div>
+        <p class="team-qualif">Docteur en droit</p>
+        <p class="team-bio">Agnès Viottolo est docteur en droit. Elle intervient principalement en droit social, accompagnant entreprises et dirigeants dans la gestion des problématiques sociales présentant des enjeux juridiques et stratégiques significatifs. Elle conseille régulièrement des groupes de premier plan dans la structuration et la sécurisation de leurs politiques sociales, notamment dans le cadre de réorganisations d'entreprises, de projets de restructuration et de relations avec les représentants du personnel.</p>
+        <p class="team-bio">Elle intervient également dans la gestion de contentieux sociaux sensibles, tant devant les juridictions prud'homales que dans les litiges collectifs du travail, lorsque les enjeux sociaux s'inscrivent dans un contexte économique ou organisationnel complexe. Son expertise lui permet d'appréhender les questions sociales en tenant compte des enjeux plus larges de gouvernance, de restructuration ou de contentieux économique, qui peuvent se trouver étroitement liés à la gestion des ressources humaines.</p>
+        <p class="team-bio">Reconnue pour sa maîtrise du droit social des entreprises et sa connaissance des environnements économiques exigeants, Agnès Viottolo accompagne les directions juridiques et les directions des ressources humaines dans la gestion de leurs problématiques sociales les plus stratégiques, tant en phase de conseil préventif qu'en situation contentieuse ou de crise.</p>
+        <div class="team-domaines">
+          <span class="team-domaine">Droit social</span>
+          <span class="team-domaine">PSE</span>
+          <span class="team-domaine">Relations collectives</span>
+          <span class="team-domaine">Restructurations</span>
+        </div>
+        <div class="team-tel">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          <a href="tel:+33663477188">06.63.47.71.88</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Maxence Audegond -->
+    <div class="team-card fade-up">
+      <div class="team-photo-zone">
+        <img src="photos/maxence-audegond.jpg" alt="Maxence Audegond">
+        <div class="team-photo-gradient"></div>
+      </div>
+      <div class="team-bar"></div>
+      <div class="team-info">
+        <div class="team-nom">Maxence Audegond</div>
+        <div class="team-role">Restructuring · Procédures collectives · Contentieux</div>
+        <div class="team-cabinet">Marigny Avocats · Associé · Avocat au barreau de Paris</div>
+        <p class="team-qualif">&nbsp;</p>
+        <p class="team-bio">Maxence Audegond intervient principalement en restructuring, en droit des entreprises en difficulté et en contentieux des affaires. Il accompagne régulièrement dirigeants, investisseurs, fonds d'investissement ainsi que partenaires bancaires et financiers dans des opérations de restructuration d'entreprises et dans la gestion de situations spéciales, notamment dans le cadre de procédures de prévention des difficultés — mandat ad hoc, conciliation — et de procédures collectives.</p>
+        <p class="team-bio">Au cours des dernières années, il s'est illustré dans plusieurs dossiers de restructuration de la place, intervenant aux côtés d'entreprises, de créanciers ou d'investisseurs confrontés à des situations financières complexes. Maxence Audegond intervient également de manière régulière dans la défense des organes de la procédure collective, notamment aux côtés d'administrateurs judiciaires et de mandataires judiciaires dans le cadre de contentieux liés aux procédures collectives.</p>
+        <p class="team-bio">Il dispose par ailleurs d'une pratique reconnue du contentieux des affaires, intervenant dans des litiges économiques et commerciaux complexes, notamment dans des conflits entre associés, des différends liés à la gouvernance des sociétés ou des contentieux stratégiques entre entreprises. Il intervient ainsi aux côtés des principaux acteurs du restructuring et du financement des entreprises dans des dossiers impliquant des enjeux juridiques et financiers significatifs.</p>
+        <div class="team-domaines">
+          <span class="team-domaine">Restructuring</span>
+          <span class="team-domaine">Procédures collectives</span>
+          <span class="team-domaine">Contentieux</span>
+          <span class="team-domaine">Financement</span>
+        </div>
+        <div class="team-tel">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          <a href="tel:+33651699559">06.51.69.95.59</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nicolas Montadier -->
+    <div class="team-card fade-up">
+      <div class="team-photo-zone">
+        <img src="photos/nicolas-montadier.jpg" alt="Nicolas Montadier">
+        <div class="team-photo-gradient"></div>
+      </div>
+      <div class="team-bar"></div>
+      <div class="team-info">
+        <div class="team-nom">Nicolas Montadier</div>
+        <div class="team-role">Corporate · Droit des sociétés · Restructuring</div>
+        <div class="team-cabinet">Marigny Avocats · Associé · Avocat au barreau de Paris</div>
+        <p class="team-qualif">&nbsp;</p>
+        <p class="team-bio">Nicolas Montadier intervient principalement en droit des sociétés et en restructuring, accompagnant dirigeants, entreprises et investisseurs dans leurs opérations corporate ainsi que dans les situations de restructuration. Il conseille ses clients dans les opérations de structuration et de réorganisation de groupes de sociétés, les opérations de gouvernance ainsi que dans la mise en place de structures juridiques complexes adaptées aux enjeux économiques et financiers.</p>
+        <p class="team-bio">Reconnu pour sa rigueur et la précision de son analyse juridique, Nicolas Montadier intervient régulièrement dans des opérations impliquant des structurations sociétaires complexes ou des problématiques corporate sensibles. Il accompagne également les entreprises et leurs dirigeants dans le cadre de procédures de prévention des difficultés et de procédures collectives, notamment lorsque les questions corporate et financières se trouvent étroitement liées à la restructuration de l'entreprise.</p>
+        <p class="team-bio">Son approche combine une maîtrise technique approfondie du droit des sociétés, une expérience des situations de restructuration et une compréhension des enjeux stratégiques des entreprises dans des environnements complexes et contraints. Cette double compétence lui permet d'apporter une vision globale et cohérente dans les dossiers à la croisée du corporate et du restructuring.</p>
+        <div class="team-domaines">
+          <span class="team-domaine">Corporate</span>
+          <span class="team-domaine">Droit des sociétés</span>
+          <span class="team-domaine">Restructuring</span>
+          <span class="team-domaine">Gouvernance</span>
+        </div>
+        <div class="team-tel">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          <a href="tel:+33676717371">06.76.71.73.71</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ 3 — SITUATIONS DE CRISE ══ -->
+<section class="situations" id="situations">
+  <svg class="situations-bg" viewBox="0 0 700 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <line x1="0" y1="0"   x2="400" y2="400" stroke="white" stroke-width=".8"/>
+    <line x1="0" y1="200" x2="400" y2="400" stroke="white" stroke-width=".8"/>
+    <line x1="0" y1="400" x2="400" y2="400" stroke="white" stroke-width=".8"/>
+    <line x1="0" y1="600" x2="400" y2="400" stroke="white" stroke-width=".8"/>
+    <line x1="0" y1="800" x2="400" y2="400" stroke="white" stroke-width=".8"/>
+    <line x1="400" y1="400" x2="700" y2="400" stroke="#C6973F" stroke-width="1.2"/>
+  </svg>
+  <div class="sit-inner fade-up">
+    <div>
+      <p class="sit-sup">Domaine phare</p>
+      <h2 class="sit-h2">Situations spéciales<br>et <em>de crise</em></h2>
+      <p class="sit-text">Certaines situations d'entreprise se caractérisent par la sensibilité des enjeux sociaux, économiques et juridiques qu'elles impliquent, et nécessitent l'intervention d'équipes disposant d'expertises complémentaires et d'une capacité à travailler de façon coordonnée dans l'urgence.</p>
+      <p class="sit-text">Les restructurations financières, les conflits entre associés, les crises sociales ou les enquêtes pénales mobilisent simultanément plusieurs disciplines du droit. Or, dans ces situations, la fragmentation des conseils — chaque expert intervenant dans son couloir sans vision d'ensemble — peut se révéler aussi préjudiciable que l'absence de conseil.</p>
+      <p class="sit-text">Convergence Avocats intervient précisément dans ces situations dites « spéciales », dans lesquelles la maîtrise des enjeux juridiques doit s'accompagner d'une approche stratégique des dossiers et d'une capacité à coordonner plusieurs disciplines du droit autour d'une stratégie commune.</p>
+      <p class="sit-text">Les équipes de Convergence Avocats assistent leurs clients tant dans la recherche de solutions négociées — mandat ad hoc, conciliation, plans de restructuration — que dans la conduite de contentieux sensibles devant les juridictions civiles, sociales, commerciales ou pénales, avec une compréhension globale de chaque situation et de ses implications à court, moyen et long terme.</p>
+    </div>
+
+    <div class="sit-items">
+      <div class="sit-item">
+        <div class="sit-num">01</div>
+        <div class="sit-titre">Restructurations financières</div>
+        <p class="sit-texte">Accompagnement complet dans les procédures amiables — mandat ad hoc, conciliation — et les procédures collectives — sauvegarde, redressement judiciaire — mobilisant simultanément les compétences en restructuring, droit social, droit des sûretés et contentieux. Défense des débiteurs, créanciers, investisseurs et organes de la procédure. Négociation avec les créanciers et structuration des plans de restructuration.</p>
+      </div>
+      <div class="sit-item">
+        <div class="sit-num">02</div>
+        <div class="sit-titre">Conflits entre associés et crises de gouvernance</div>
+        <p class="sit-texte">Gestion des litiges de gouvernance et des conflits capitalistiques impliquant des enjeux de contrôle, de valorisation et de responsabilité. Intervention tant en négociation amiable qu'en contentieux judiciaire ou arbitral. Stratégie intégrée combinant le droit des sociétés, le contentieux, et si nécessaire les dimensions pénales et sociales du différend.</p>
+      </div>
+      <div class="sit-item">
+        <div class="sit-num">03</div>
+        <div class="sit-titre">Crises sociales</div>
+        <p class="sit-texte">Accompagnement dans les situations de crise sociale liées à des réorganisations complexes — plans de sauvegarde de l'emploi, restructurations à forts enjeux sociaux — dans le cadre de procédures négociées ou contentieuses. Gestion des relations avec les institutions représentatives du personnel, des risques de blocage et des contentieux collectifs sensibles.</p>
+      </div>
+      <div class="sit-item">
+        <div class="sit-num">04</div>
+        <div class="sit-titre">Enquêtes et procédures pénales</div>
+        <p class="sit-texte">Défense des dirigeants et entreprises confrontés à des enquêtes préliminaires, des instructions judiciaires ou des procédures répressives à caractère économique et financier. Gestion simultanée des dimensions pénales, civiles et de communication de crise. Assistance spécifique dans les dossiers à forte dimension médiatique ou institutionnelle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ APPROCHE ══ -->
+<div class="approche">
+  <div class="approche-left fade-up">
+    <p class="section-label">Notre philosophie</p>
+    <h2 class="section-title">Une vision <em>stratégique</em><br>au-delà du juridique</h2>
+    <blockquote class="approche-quote">
+      « Là où les chemins convergent, la solution se trouve. Un bon avocat d'affaires ne se contente pas de gérer le risque — il crée les conditions de la convergence. »
+    </blockquote>
+    <p class="approche-body">Convergence Avocats a été fondé sur la conviction que les meilleures solutions juridiques naissent d'une compréhension profonde des enjeux économiques, financiers et humains de chaque situation. Chaque dossier est appréhendé comme une situation singulière, inscrite dans un environnement économique, humain et réputationnel qu'il convient de maîtriser avec précision. Nous ne sommes pas de simples techniciens du droit : nous sommes des partenaires stratégiques de nos clients dans les moments qui comptent.</p>
+    <p class="approche-body">Les associés disposent d'une connaissance directe des problématiques des dirigeants, de leurs responsabilités et des contraintes inhérentes à la conduite des affaires. Cette proximité avec la réalité décisionnelle permet d'apporter des réponses adaptées, éclairées et immédiatement opérationnelles, en tenant compte des équilibres économiques, des enjeux de gouvernance et de la dimension humaine de chaque situation.</p>
+    <p class="approche-body">Le réseau est par ailleurs constitué de cabinets indépendants : cette indépendance est une valeur cardinale. Elle garantit l'absence de conflit d'intérêts, la liberté de ton dans le conseil et la capacité à défendre les intérêts de nos clients sans les contraintes institutionnelles des grandes organisations.</p>
+  </div>
+  <div class="approche-right fade-up">
+    <div class="valeur">
+      <div class="valeur-titre">Complémentarité des expertises</div>
+      <p class="valeur-text">L'association des expertises de Teitgen &amp; Viottolo — contentieux, pénal économique, droit social — et de Marigny Avocats — restructuring, corporate, contentieux — permet d'appréhender chaque dossier dans toutes ses dimensions sans fragmentation de l'analyse ni perte de cohérence stratégique. C'est cette complémentarité qui constitue l'ADN du réseau.</p>
+    </div>
+    <div class="valeur">
+      <div class="valeur-titre">Approche transversale et coordonnée</div>
+      <p class="valeur-text">Les situations les plus complexes mobilisent simultanément plusieurs disciplines du droit. La force de Convergence Avocats réside dans sa capacité à coordonner ces disciplines au service d'une stratégie globale cohérente, intégrant les dimensions judiciaires, négociées, sociales et, si nécessaire, de communication de crise. Cette coordination est au cœur de notre valeur ajoutée.</p>
+    </div>
+    <div class="valeur">
+      <div class="valeur-titre">Indépendance et engagement</div>
+      <p class="valeur-text">Constitué de cabinets indépendants partageant une même exigence d'excellence, le réseau offre la réactivité, la liberté de ton et la capacité d'engagement que seule une structure indépendante peut garantir. Nous ne conseillons pas en comités — nous prenons position, nous assumons nos analyses et nous défendons nos clients avec détermination.</p>
+    </div>
+    <div class="valeur">
+      <div class="valeur-titre">Réactivité dans les situations d'urgence</div>
+      <p class="valeur-text">Les situations de crise n'attendent pas. Notre organisation et notre mode de fonctionnement en réseau nous permettent d'intervenir rapidement et efficacement dès les premières heures d'une situation critique, avec la capacité immédiate de mobiliser toutes les expertises nécessaires.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ LE RÉSEAU ══ -->
+<div class="reseau" id="reseau">
+  <div class="reseau-left fade-up">
+    <p class="section-label">Le réseau</p>
+    <h2 class="section-title">Deux cabinets,<br>une <em>approche commune</em></h2>
+    <p style="font-size:14.5px; color:var(--muted); line-height:1.9; margin-bottom:20px;">
+      Convergence Avocats est un réseau d'avocats d'affaires constitué autour de cabinets indépendants partageant une même exigence d'excellence juridique et une approche stratégique des dossiers. Le réseau accompagne dirigeants, entreprises et investisseurs dans leurs opérations et contentieux stratégiques, en particulier lorsque les enjeux corporate, financiers, sociaux et pénaux sont étroitement liés.
+    </p>
+    <p style="font-size:14.5px; color:var(--muted); line-height:1.9; margin-bottom:20px;">
+      En associant des expertises reconnues, Convergence Avocats propose une approche transversale du droit des affaires, permettant d'appréhender les dossiers dans toutes leurs dimensions juridiques et stratégiques. Cette transversalité est organisée : les associés des deux cabinets travaillent ensemble sur les dossiers complexes, en coordonnant leurs analyses et leurs stratégies dès le début de l'intervention.
+    </p>
+    <p style="font-size:14.5px; color:var(--muted); line-height:1.9; margin-bottom:20px;">
+      Le réseau intervient ainsi tant dans les opérations de développement et de structuration des entreprises que dans la gestion de situations de crise, en apportant à chaque fois la même exigence de qualité, la même rigueur d'analyse et la même attention à la réalité opérationnelle et humaine de chaque situation.
+    </p>
+    <p style="font-size:14.5px; color:var(--muted); line-height:1.9;">
+      Présent à Paris, Marseille et Nice, Convergence Avocats peut accompagner ses clients partout en France, avec une capacité d'intervention locale adaptée aux enjeux de chaque juridiction et aux spécificités économiques de chaque bassin d'activité.
+    </p>
+  </div>
+  <div class="reseau-right fade-up">
+    <div class="cabinet-card">
+      <div class="cabinet-nom">Teitgen &amp; Viottolo</div>
+      <p class="cabinet-desc">Le cabinet Teitgen &amp; Viottolo apporte au réseau une expertise reconnue en contentieux des affaires, en droit pénal économique et en droit social. Fondé par Francis Teitgen, ancien Bâtonnier de l'Ordre des avocats de Paris, et Agnès Viottolo, docteur en droit spécialisée en droit social, le cabinet intervient dans des dossiers à forte sensibilité économique, juridique et médiatique. Sa pratique du contentieux et du droit pénal économique, associée à une expertise reconnue en droit social des entreprises dans les environnements exigeants, lui permet d'accompagner ses clients dans les situations les plus délicates avec rigueur et discernement.</p>
+    </div>
+    <div class="cabinet-card">
+      <div class="cabinet-nom">Marigny Avocats</div>
+      <p class="cabinet-desc">Le cabinet Marigny Avocats s'est illustré au cours des dernières années dans de nombreuses opérations et procédures de restructuring, accompagnant dirigeants, créanciers et investisseurs dans des situations de restructuration financière, de procédures collectives et de négociations complexes. Sa pratique du restructuring est reconnue par les professionnels du secteur ainsi que par la presse spécialisée, qui identifient le cabinet comme un acteur de référence dans l'accompagnement des opérations de restructuration et des situations complexes d'entreprise. Maxence Audegond et Nicolas Montadier y apportent également une maîtrise solide du droit des sociétés et du contentieux des affaires.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CONTACT ══ -->
+<div class="contact" id="contact">
+  <div class="contact-left">
+    <p class="section-label" style="color:var(--gold)">Contact</p>
+    <h2 class="section-title" style="color:var(--white)">Parlons de votre<br><em>situation</em></h2>
+    <p class="contact-intro">La confidentialité de vos échanges est assurée. Nos équipes vous répondent dans les meilleurs délais — sans délai superflu lorsque la situation l'exige. Pour les situations urgentes, n'hésitez pas à l'indiquer dans votre message.</p>
+    <div class="contact-villes">
+      <div>
+        <div class="ville-nom">Paris — Marigny Avocats</div>
+        <div class="ville-info">33 avenue Mac-Mahon<br>75017 Paris</div>
+      </div>
+      <div>
+        <div class="ville-nom">Paris — Teitgen &amp; Viottolo</div>
+        <div class="ville-info">137 boulevard Raspail<br>75006 Paris</div>
+      </div>
+      <div>
+        <div class="ville-nom">Nice</div>
+        <div class="ville-info">25 avenue Désambrois<br>06000 Nice</div>
+      </div>
+      <div>
+        <div class="ville-nom">Marseille</div>
+        <div class="ville-info">1 place Félix-Baret<br>13006 Marseille</div>
+      </div>
+      <div style="margin-top:8px; padding-top:20px; border-top:1px solid rgba(255,255,255,.07);">
+        <div class="ville-nom">Téléphone</div>
+        <div class="ville-info"><a href="tel:+33144293400" style="color:var(--gold); text-decoration:none;">01.44.29.34.00</a></div>
+      </div>
+      <div>
+        <div class="ville-nom">Email</div>
+        <div class="ville-info"><a href="mailto:contact@convergence-avocats.com" style="color:var(--gold); text-decoration:none; font-size:12px;">contact@convergence-avocats.com</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="contact-right">
+    <p class="form-title">Nous écrire</p>
+    <div class="form-row">
+      <div class="form-group"><label>Prénom &amp; Nom</label><input type="text" placeholder="Jean Dupont"></div>
+      <div class="form-group"><label>Société</label><input type="text" placeholder="Votre entreprise"></div>
+    </div>
+    <div class="form-group"><label>Email</label><input type="email" placeholder="jean@entreprise.fr"></div>
+    <div class="form-group"><label>Téléphone</label><input type="tel" placeholder="+33 6 00 00 00 00"></div>
+    <div class="form-group">
+      <label>Domaine concerné</label>
+      <select>
+        <option value="">Sélectionner un domaine</option>
+        <option>Corporate et droit des sociétés</option>
+        <option>Droit social</option>
+        <option>Restructuring et situations spéciales</option>
+        <option>Contentieux des affaires</option>
+        <option>Droit pénal des affaires</option>
+        <option>Situation de crise — plusieurs domaines</option>
+        <option>Autre</option>
+      </select>
+    </div>
+    <div class="form-group"><label>Votre situation</label><textarea placeholder="Décrivez brièvement votre situation ou votre besoin. Toutes les informations que vous nous transmettez sont strictement confidentielles."></textarea></div>
+    <button class="btn-submit">Envoyer →</button>
+    <p class="form-note">Toutes les informations transmises via ce formulaire sont soumises au secret professionnel de l'avocat. Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données.</p>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-main">
+    <div>
+      <div class="footer-name">CONVERGENCE AVOCATS</div>
+      <div class="footer-tagline">Paris · Marseille · Nice</div>
+    </div>
+    <p class="footer-slogan">La stratégie juridique des entreprises dans les situations complexes.</p>
+    <div style="text-align:right">
+      <a href="https://www.convergence-avocats.com" class="footer-url">www.convergence-avocats.com</a>
+      <div style="margin-top:5px"><a href="mailto:contact@convergence-avocats.com" style="font-size:11px; color:rgba(255,255,255,.35); text-decoration:none;">contact@convergence-avocats.com</a></div>
+      <div style="margin-top:3px"><a href="tel:+33144293400" style="font-size:11px; color:rgba(255,255,255,.35); text-decoration:none;">01.44.29.34.00</a></div>
+    </div>
+  </div>
+  <div class="footer-legal-bar">
+    <span class="footer-legal">© 2025 Convergence Avocats · Avocats au Barreau de Paris · Teitgen &amp; Viottolo · Marigny Avocats</span>
+    <div class="footer-legal-links">
+      <a href="#" onclick="document.getElementById('ml-overlay').classList.add('open'); return false;">Mentions légales</a>
+      <a href="#">Politique de confidentialité</a>
+      <a href="#">Règlement intérieur</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ MENTIONS LÉGALES MODAL ══ -->
+<div class="ml-overlay" id="ml-overlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="ml-box">
+    <button class="ml-close" onclick="document.getElementById('ml-overlay').classList.remove('open')">×</button>
+    <h1 class="ml-h1">Mentions légales</h1>
+
+    <h2 class="ml-h2">Éditeur du site</h2>
+    <p class="ml-p"><strong>Convergence Avocats</strong><br>Réseau d'avocats d'affaires constitué autour des cabinets Teitgen &amp; Viottolo et Marigny Avocats.</p>
+    <p class="ml-p"><strong>Directeur de la publication :</strong> Maître Maxence AUDEGOND<br>Associé — Marigny Avocats<br>33 avenue Mac-Mahon — 75017 Paris</p>
+    <p class="ml-p"><strong>Téléphone :</strong> 01.44.29.34.00<br><strong>Email :</strong> contact@convergence-avocats.com</p>
+
+    <h2 class="ml-h2">Cabinets membres du réseau</h2>
+    <p class="ml-p"><strong>Teitgen &amp; Viottolo</strong><br>137 boulevard Raspail — 75006 Paris<br>Avocats inscrits au Barreau de Paris</p>
+    <p class="ml-p"><strong>Marigny Avocats</strong><br>33 avenue Mac-Mahon — 75017 Paris<br>Avocats inscrits au Barreau de Paris</p>
+    <p class="ml-p"><strong>Convergence Avocats — Nice :</strong> 25 avenue Désambrois — 06000 Nice</p>
+    <p class="ml-p"><strong>Convergence Avocats — Marseille :</strong> 1 place Félix-Baret — 13006 Marseille</p>
+
+    <h2 class="ml-h2">Hébergement</h2>
+    <p class="ml-p">À compléter par les coordonnées de l'hébergeur du site internet.</p>
+
+    <h2 class="ml-h2">Profession réglementée</h2>
+    <p class="ml-p">Les avocats membres du réseau Convergence Avocats sont inscrits au Barreau de Paris, soumis au Règlement intérieur national de la profession d'avocat (RIN) et au Règlement intérieur du Barreau de Paris. Ils sont soumis au secret professionnel conformément aux articles 66-5 de la loi n° 71-1130 du 31 décembre 1971 et 2 du décret n° 2005-790 du 12 juillet 2005.</p>
+    <p class="ml-p">Titre professionnel : Avocat. Pays d'octroi : France. Règles professionnelles applicables : disponibles sur le site du Conseil National des Barreaux (<a href="https://www.cnb.avocat.fr" style="color:#C6973F">www.cnb.avocat.fr</a>) et du Barreau de Paris (<a href="https://www.avocatparis.org" style="color:#C6973F">www.avocatparis.org</a>).</p>
+
+    <h2 class="ml-h2">Assurance responsabilité civile professionnelle</h2>
+    <p class="ml-p">Les avocats membres du réseau sont couverts par une assurance responsabilité civile professionnelle souscrite conformément aux obligations légales et réglementaires de la profession.</p>
+
+    <h2 class="ml-h2">Propriété intellectuelle</h2>
+    <p class="ml-p">Le contenu de ce site (textes, visuels, logos) est protégé par le droit de la propriété intellectuelle. Toute reproduction, même partielle, est interdite sans autorisation préalable écrite de Convergence Avocats.</p>
+
+    <h2 class="ml-h2">Protection des données personnelles (RGPD)</h2>
+    <p class="ml-p">Les données collectées via le formulaire de contact sont utilisées exclusivement aux fins de traitement de votre demande et sont soumises au secret professionnel de l'avocat. Conformément au Règlement (UE) 2016/679, vous disposez d'un droit d'accès, de rectification, d'effacement et de portabilité de vos données, ainsi que d'un droit d'opposition à leur traitement. Pour exercer ces droits : <a href="mailto:contact@convergence-avocats.com" style="color:#C6973F">contact@convergence-avocats.com</a>.</p>
+
+    <h2 class="ml-h2">Limitation de responsabilité</h2>
+    <p class="ml-p">Les informations publiées sur ce site ont un caractère purement informatif et ne constituent pas un conseil juridique. Elles ne sauraient engager la responsabilité de Convergence Avocats. Pour toute question juridique, veuillez nous contacter directement.</p>
+  </div>
+</div>
+
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80);
+  });
+}, { threshold: 0.07 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+// Masquer sticky CTA quand on est dans le contact
+const contactEl = document.getElementById('contact');
+const stickyEl = document.querySelector('.sticky-rdv');
+if (contactEl && stickyEl) {
+  new IntersectionObserver(([e]) => {
+    stickyEl.style.opacity = e.isIntersecting ? '0' : '1';
+    stickyEl.style.pointerEvents = e.isIntersecting ? 'none' : 'auto';
+  }, { threshold: 0.1 }).observe(contactEl);
+}
+</script>
+</body>
+</html>
